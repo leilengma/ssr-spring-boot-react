@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>SpringBoot &amp; React | Progressive Webapp Demo</title>
+        <link rel="stylesheet" href="/styles.css" />
+    </head>
+    <body>
+
+        <div id="root" th:utext="${content}"></div>
+
+        <script src="/js/main.js"></script>
+        <script src="/js/main.js.map"></script>
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+                var persons = /*[[${persons}]]*/ 'default';
+                window.renderClient(persons);
+            /*]]>*/
+        </script>
+
+    </body>
+</html>
