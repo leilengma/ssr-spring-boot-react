@@ -1,6 +1,6 @@
 
 import React from 'react'
-import style from'./app.css'
+import './app.css'
 
 class App extends React.Component {
 
@@ -45,7 +45,6 @@ class App extends React.Component {
                     }
                     </tbody>
                 </table>
-
                 <button onClick={this.updateMsg}>refresh</button>
             </div>
         );
