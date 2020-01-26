@@ -1,6 +1,6 @@
 
 import React from 'react'
-import style from'./app.css'
+// import style from'./app.css'
 
 class App extends React.Component {
 
@@ -26,22 +26,28 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <h1>Persons: </h1>
+                <h1>Persons:</h1>
                 <table>
                     <thead>
-                        <th className="header">Firstname</th>
+                        <th>Firstname</th>
                         <th>lastname</th>
                         <th>age</th>
                     </thead>
                     <tbody>
                     {
-                        this.state.persons.map(person => {
-                            return <tr>
-                                <td>{person.firstName}</td> 
-                                <td>{person.lastName}</td>
-                                <td>{person.age}</td>
+                        this.state.persons && Array.isArray(this.state.persons) ? 
+                            this.state.persons.map(person => {
+                                return <tr>
+                                    <td>{person.firstName}</td> 
+                                    <td>{person.lastName}</td>
+                                    <td>{person.age}</td>
+                                </tr>
+                            })
+                        :
+                            <tr>
+                                <td>{this.state.persons? this.state.persons.toString() : ''}</td>
                             </tr>
-                        })
+
                     }
                     </tbody>
                 </table>

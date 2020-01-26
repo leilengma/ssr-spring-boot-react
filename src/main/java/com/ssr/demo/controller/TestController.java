@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import javax.script.ScriptException;
 
+import com.google.gson.Gson;
 import com.ssr.demo.model.Person;
 import com.ssr.demo.render.React;
 import com.ssr.demo.service.RandomNameService;
@@ -36,10 +37,20 @@ public class TestController {
             person.setAge(r.nextInt(100));
             return person;
         }).collect(Collectors.toList());
-        String renderedHTML = react.renderEntryPoint(persons);
+        Gson gson = new Gson();
+        String data = gson.toJson(persons);     
+        String renderedHTML = react.renderEntryPoint("/index", data);
 
         model.addAttribute("content", renderedHTML);
         model.addAttribute("persons", persons);
+        return "index";
+    }
+
+    @GetMapping(value = "/language")
+    public String getLanguages(Model model) throws IOException, ScriptException { 
+        String renderedHTML = react.renderEntryPoint("/language", "{}");
+        model.addAttribute("content", renderedHTML);
+        model.addAttribute("persons", null);
         return "index";
     }
     
