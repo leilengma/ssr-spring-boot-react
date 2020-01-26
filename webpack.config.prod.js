@@ -4,12 +4,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     plugins: [new MiniCssExtractPlugin()],
     entry: ["@babel/polyfill", path.resolve(__dirname, "./components/index.js")],
-    watch: true,
-    watchOptions: {
-        aggregateTimeout: 300,
-        poll: 1000,
-        ignored: /node_modules/
-    },
     module: {
         rules: [
             {
@@ -37,5 +31,4 @@ module.exports = {
     //       chunks: "all"
     //     }
     // },
-    devtool: 'source-map'
 };

@@ -51,7 +51,6 @@ class App extends React.Component {
                     }
                     </tbody>
                 </table>
-
                 <button onClick={this.updateMsg}>refresh</button>
             </div>
         );
